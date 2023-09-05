@@ -36,7 +36,7 @@ public class TeamServiceImpl implements TeamService{
     @Override
     public List<Match> getMatchDetails(String teamName, Integer pageNumber) {
         Pageable pages = PageRequest.of(pageNumber, 5);
-        List<Match> matches = matchRepository.findMatchByTeam1OrTeam2(teamName, teamName, pages);
+        List<Match> matches = matchRepository.findMatchByTeam1OrTeam2OrderByStartDateDesc(teamName, teamName, pages);
 //                .map(Collections::singletonList)
 //                .orElse(Collections.emptyList());
         return matches;

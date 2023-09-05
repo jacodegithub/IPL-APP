@@ -1,0 +1,40 @@
+.match-detail-card {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1rem;
+
+    .match-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: orange;
+        border-radius: .5rem;
+        overflow: hidden;
+
+        .match-card-left {
+            display: flex;
+
+            .match-winner {
+                background-color: rgba(255, 0, 0, 0.537);
+                padding: var(--match-card-padding);
+            }
+            .match-looser {
+                background-color: greenyellow;
+                padding: var(--match-card-padding);
+            }
+            .match-card-captain {
+                padding: var(--match-card-padding);
+            }
+            .match-card-venue-name {
+                padding: var(--match-card-padding);
+            }
+        }
+
+        .match-card-right {
+            padding: var(--match-card-padding);
+        }
+    }
+
+    
+    
+}

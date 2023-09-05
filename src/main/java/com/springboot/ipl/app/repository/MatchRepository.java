@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface MatchRepository extends JpaRepository<Match, Long> {
 
-    List<Match> findMatchByTeam1OrTeam2(String team1, String team2, Pageable pages);
+    List<Match> findMatchByTeam1OrTeam2OrderByStartDateDesc(String team1, String team2, Pageable pages);
 }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { HelperFunction } from '../../service/Helper';
 import { MatchDetailCard } from '../../components/matchDataCard/matchDetailCard'
 import { TeamDetailCard } from '../../components/teamDataCard/teamDetailCard'
-import { HelperFunction } from '../../service/Helper';
 import { useParams } from 'react-router-dom';
+import './teamPage.scss'
 
 export const TeamPage = () => {
 
@@ -20,14 +21,14 @@ export const TeamPage = () => {
   }, [teamName])
 
   return (
-    <div>
-      <div className="team-home-page">
-        <TeamDetailCard matches={teamData?.matches[0]} teamData={teamData} teamName={teamData.teamName} />
-        {
-          teamData && teamData?.matches?.slice(1).map((match, index) => <MatchDetailCard key={index} teamName={teamData.teamName} match={match} />)
-        }
-        
+    <div className="team-page">
+      <TeamDetailCard matches={teamData?.matches[0]} teamData={teamData} teamName={teamData.teamName} />
+      <div className="match-detail-card max-width">
+      {
+        teamData && teamData?.matches?.slice(1).map((match, index) => <MatchDetailCard key={index} teamName={teamData.teamName} match={match} />)
+      }
       </div>
     </div>
   )
+      
 }
