@@ -21,9 +21,9 @@ export const TeamPage = () => {
   }, [teamName])
 
   return (
-    <div className="team-page">
+    <div className="team-page max-width">
       <TeamDetailCard matches={teamData?.matches[0]} teamData={teamData} teamName={teamData.teamName} />
-      <div className="match-detail-card max-width">
+      <div className="match-detail-card">
       {
         teamData && teamData?.matches?.slice(1).map((match, index) => <MatchDetailCard key={index} teamName={teamData.teamName} match={match} />)
       }

@@ -10,4 +10,6 @@ public interface TeamService {
     Team getTeamByName(String teamName);
 
     List<Match> getMatchDetails(String teamName, Integer pageNumber);
+
+    List<Match> getAllMatches(String teamName);
 }

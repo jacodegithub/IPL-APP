@@ -10,6 +10,8 @@ export const MatchDetailCard = ({teamName, match}) => {
 
   const otherTeamLink = `/teams/${otherTeam}`;
 
+  const matchPage =  `/teams/matches/${otherTeam}`
+
   return (
     <div className='match-card'>
       <div className="match-card-left">
@@ -21,7 +23,7 @@ export const MatchDetailCard = ({teamName, match}) => {
         <div className="match-card-venue-name">{match.venueName}</div>
       </div>
       <div className="match-card-right pointer">
-        {'more ->'}
+        <Link to={matchPage}>{'more >'}</Link>
       </div>
     </div>
   )

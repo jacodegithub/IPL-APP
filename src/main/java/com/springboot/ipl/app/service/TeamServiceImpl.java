@@ -41,4 +41,10 @@ public class TeamServiceImpl implements TeamService{
 //                .orElse(Collections.emptyList());
         return matches;
     }
+
+    @Override
+    public List<Match> getAllMatches(String team) {
+       List<Match> matches = matchRepository.findMatchByTeam1OrTeam2(team, team);
+       return matches;
+    }
 }
