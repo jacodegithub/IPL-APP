@@ -16,6 +16,34 @@ body {
   margin: 0px auto;
 }
 
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+li {
+  list-style-type: none;
+}
+
+.match-winner {
+  background: var(--winner-color);
+  padding: var(--match-card-padding);
+  backdrop-filter: blur(20px);
+}
+.match-looser {
+  background: var(--looser-color);
+  padding: var(--match-card-padding);
+  backdrop-filter: blur(20px);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 :root {
   --match-card-padding: .5rem .5rem .5rem .5rem;
+  --looser-color: rgba(255, 0, 0, 0.300);
+  --winner-color: rgba(172, 255, 47, 0.300);
 }
+
+

@@ -12,23 +12,35 @@
             font-weight: 700;
             grid-column: span 2;
             padding: 1rem;
-            background-color: aqua;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border-radius: 1rem;
     
             .team-short-name {
                 font-size: 2rem;
             }
         }
-    
-        .match-details-left {
-            grid-column: span 2;
-            padding: 1rem;
-            background-color: azure;
+
+        .team-details {
+            grid-column: span 3;
+            display: flex;
+            color: rgb(255, 255, 255);
+            border-radius: 1rem;
+
+            .match-details-left {
+                flex: 2;
+                padding: 1rem;
+                // background-color: azure;
+            }
+        
+            .match-details-right {
+                flex: 1;
+                text-align: right;
+                padding: 1rem;
+                // background-color: cadetblue;
+            }
         }
     
-        .match-details-right {
-            text-align: right;
-            padding: 1rem;
-            background-color: cadetblue;
-        }
+        
     }
 }

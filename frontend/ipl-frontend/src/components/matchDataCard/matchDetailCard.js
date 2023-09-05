@@ -20,8 +20,8 @@ export const MatchDetailCard = ({teamName, match}) => {
         <div className="match-card-captain">c. {match.homeCaptain}</div>
         <div className="match-card-venue-name">{match.venueName}</div>
       </div>
-      <div className="match-card-right">
-        more
+      <div className="match-card-right pointer">
+        {'more ->'}
       </div>
     </div>
   )

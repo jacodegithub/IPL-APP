@@ -1,4 +1,5 @@
 import './teamDetailCard.scss'
+import '../../components/matchDataCard/matchDetailCard.scss'
 
 export const TeamDetailCard = ({matches, teamData, teamName}) => {
   if(!teamData || !matches) return null;
@@ -19,19 +20,21 @@ export const TeamDetailCard = ({matches, teamData, teamName}) => {
                     pie chart
                   </div>
                 </div>
-                <div className="match-details-left">
-                  <div className='team-vs'>VS {otherTeam}</div>
-                  <div className="match-time">Time: {matches.matchDays}</div>
-                  <div className="match-venue">Venue: {matches.venueName}</div>
-                  <div className="match-highlights">Hightlights: {matches.highlights}</div>
-                  
-                </div>
-                <div className='match-details-right'>
-                  <div className="match-captain">Captain: {matches.homeCaptain}</div>
-                  <div className="firstInningScore">First Innings Score: {matches.firstInningScore}</div>
-                  <div className="secondInningScore">Second Innings Score: {matches.secondInningScore}</div>
-                  <div className="match-umpire">Umpire: {matches.reserveUmpire}</div>
-                  
+                <div className={`team-details ${otherTeam === teamName ? `match-winner` : `match-looser`}`}>
+                  <div className="match-details-left">
+                    <div className='team-vs'>VS {otherTeam}</div>
+                    <div className="match-time">Time: {matches.matchDays}</div>
+                    <div className="match-venue">Venue: {matches.venueName}</div>
+                    <div className="match-highlights">Hightlights: {matches.highlights}</div>
+                    
+                  </div>
+                  <div className='match-details-right'>
+                    <div className="match-captain">Captain: {matches.homeCaptain}</div>
+                    <div className="firstInningScore">First Innings Score: {matches.firstInningScore}</div>
+                    <div className="secondInningScore">Second Innings Score: {matches.secondInningScore}</div>
+                    <div className="match-umpire">Umpire: {matches.reserveUmpire}</div>
+                    
+                  </div>
                 </div>
             </div>            
           )
