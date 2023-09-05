@@ -1,5 +1,8 @@
 package com.springboot.ipl.app.batchConfig;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import com.springboot.ipl.app.util.MyItemProcessor;
@@ -21,6 +24,7 @@ import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -29,6 +33,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.springboot.ipl.app.dto.MatchData;
 import com.springboot.ipl.app.entity.Match;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 
 @Configuration
@@ -208,6 +215,26 @@ public class BatchConfig {
         .processor(processor())
         .writer(writer)
         .build();
+    }
+
+    // CORS CONFIGURATON
+    @Bean
+    public FilterRegistrationBean<CorsFilter> corsConfiguration() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
+        CorsConfiguration corsConfig = new CorsConfiguration();
+        corsConfig.addAllowedOriginPattern("*");
+        corsConfig.setAllowedOrigins(List.of("http://localhost:3000"));
+        corsConfig.setAllowedMethods(List.of("GET", "PUT", "DELETE", "POST" ));
+        corsConfig.addAllowedHeader("*");
+        corsConfig.setMaxAge(3500l);
+
+        source.registerCorsConfiguration("/**", corsConfig);
+
+        FilterRegistrationBean<CorsFilter> filterBean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(source));
+        filterBean.setOrder(-110);
+
+        return filterBean;
     }
 }
 

@@ -67,14 +67,6 @@ public class Team {
         this.totalWins = totalWins;
     }
 
-    public String getCaptain() {
-        return Captain;
-    }
-
-    public void setCaptain(String captain) {
-        Captain = captain;
-    }
-
     public List<Match> getMatches() {
         return matches;
     }
