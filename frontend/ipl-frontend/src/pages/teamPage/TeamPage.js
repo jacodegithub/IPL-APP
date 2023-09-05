@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { MatchDetailCard } from '../components/matchDataCard/matchDetailCard'
-import { TeamDetailCard } from '../components/teamDataCard/teamDetailCard'
-import { HelperFunction } from '../service/Helper';
+import { MatchDetailCard } from '../../components/matchDataCard/matchDetailCard'
+import { TeamDetailCard } from '../../components/teamDataCard/teamDetailCard'
+import { HelperFunction } from '../../service/Helper';
 import { useParams } from 'react-router-dom';
 
 export const TeamPage = () => {
