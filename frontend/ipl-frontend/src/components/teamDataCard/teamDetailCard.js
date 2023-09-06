@@ -23,11 +23,12 @@ export const TeamDetailCard = ({matches, teamData, teamName}) => {
                 <div className={`team-details ${otherTeam === teamName ? `match-winner` : `match-looser`}`}>
                   <div className="match-details-left">
                     <div className='team-vs'><span>VS</span> {otherTeam}</div>
-                    <div className="match-left-title">Time: </div>
-                    <div className="match-left-res">{matches.matchDays}</div>
-                    <div className="match-left-title">Heighlights: </div>
-                    <div className="match-left-res">{matches.highlights}</div>
-                    
+                    <div className="match-detail-title">Time: </div>
+                    <div className="match-detail-res">{matches.matchDays}</div>
+                    <div className="match-detail-title">Heighlights: </div>
+                    <div className="match-detail-res">{matches.highlights}</div>
+                    <div className="match-detail-title">Venue: </div>
+                    <div className="match-detail-res">{matches.venueName}</div>
                   </div>
                   <div className='match-details-right'>
                     <div className="match-detail-title">Captain:</div>
@@ -38,8 +39,7 @@ export const TeamDetailCard = ({matches, teamData, teamName}) => {
                     <div className="match-detail-res">{matches.secondInningScore}</div>
                     <div className="match-detail-title">Umpire: </div>
                     <div className="match-detail-res">{matches.reserveUmpire}</div>
-                    <div className="match-detail-title">Venue: </div>
-                    <div className="match-detail-res">{matches.venueName}</div>
+                    
                   </div>
                 </div>
             </div>            
