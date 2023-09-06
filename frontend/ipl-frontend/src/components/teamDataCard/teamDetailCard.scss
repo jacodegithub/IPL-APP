@@ -21,6 +21,11 @@
             }
         }
 
+        .team-chart {
+            display: flex;
+            justify-content: center;
+        }
+
         .team-details {
             grid-column: span 3;
             display: grid;

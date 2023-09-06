@@ -1,10 +1,21 @@
 import './teamDetailCard.scss'
 import '../../components/matchDataCard/matchDetailCard.scss'
+import { TeamPage } from '../../pages/teamPage/TeamPage';
+import { TeamPageChart } from '../teamCharts/teamPageChart';
 
 export const TeamDetailCard = ({matches, teamData, teamName}) => {
   if(!teamData || !matches) return null;
 
   const otherTeam = (teamName === matches.team2 ? matches.team1 : matches.team2);
+  const totalWins = teamData.totalWins;
+  const totalMatches = teamData.totalMatches;
+  const totalLosses = totalMatches - totalWins;
+
+  const pieChartData = [
+    {name: "Wins", value: totalWins},
+    {name: "Losses", value: totalLosses}
+  ]
+
 
   return (
     <div className='team-card max-width'>      
@@ -16,9 +27,10 @@ export const TeamDetailCard = ({matches, teamData, teamName}) => {
                   <div className='team-short-name'>{teamData.shortName}</div>
                 </div>
                 <div className="team-chart">
-                  <div>
-                    pie chart
-                  </div>
+                  <TeamPageChart
+                    teamName={teamName} 
+                    pieChartData={pieChartData} 
+                  />
                 </div>
                 <div className={`team-details ${otherTeam === teamName ? `match-winner` : `match-looser`}`}>
                   <div className="match-details-left">
