@@ -18,6 +18,8 @@ body {
 
 a {
   text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
 }
 
 li {
@@ -26,13 +28,11 @@ li {
 
 .match-winner {
   background: var(--winner-color);
-  padding: var(--match-card-padding);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
 }
 .match-looser {
   background: var(--looser-color);
-  padding: var(--match-card-padding);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
 }
 
 .pointer {
@@ -41,8 +41,8 @@ li {
 
 :root {
   --match-card-padding: .5rem;
-  --looser-color: rgba(255, 0, 0, 0.300);
-  --winner-color: rgba(172, 255, 47, 0.300);
+  --looser-color: rgba(255, 0, 0, 0.6);
+  --winner-color: rgba(172, 255, 47, 0.6);
 }
 
 

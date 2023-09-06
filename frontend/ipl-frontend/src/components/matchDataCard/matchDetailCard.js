@@ -23,7 +23,7 @@ export const MatchDetailCard = ({teamName, match}) => {
           <div className="match-card-detail-section">
               <div className="match-won">won. {match.matchWinner}</div>
               <div className="match-card-captain">c. {match.homeCaptain}</div>
-              <div className="match-card-result">c. {match.result}</div>
+              <div className="match-card-result">res. {match.result}</div>
               {/* <div className="match-card-venue-name">venue. {match.venueName}</div> */}
           </div>
         </div>

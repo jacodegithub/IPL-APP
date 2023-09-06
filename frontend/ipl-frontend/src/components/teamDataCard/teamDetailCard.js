@@ -16,13 +16,12 @@ export const TeamDetailCard = ({matches, teamData, teamName}) => {
     {name: "Losses", value: totalLosses}
   ]
 
-
   return (
     <div className='team-card max-width'>      
         {
           teamData && (
             <div key={teamData.id} className='team-name-container'>
-                <div className="team-name-wrapper">
+                <div className={`team-name-wrapper ${teamName === matches.matchWinner ? `match-winner` : `match-looser`}`}>
                   <div className='team-name'>{teamName}</div>
                   <div className='team-short-name'>{teamData.shortName}</div>
                 </div>
@@ -32,7 +31,7 @@ export const TeamDetailCard = ({matches, teamData, teamName}) => {
                     pieChartData={pieChartData} 
                   />
                 </div>
-                <div className={`team-details ${otherTeam === teamName ? `match-winner` : `match-looser`}`}>
+                <div className={`team-details ${otherTeam === matches.matchWinner ? `match-winner` : `match-looser`}`}>
                   <div className="match-details-left">
                     <div className='team-vs'><span>VS</span> {otherTeam}</div>
                     <div className="match-detail-title">Time: </div>

@@ -8,15 +8,24 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        background-color: orange;
+        background: rgba(222, 225, 254, 0.5);
         border-radius: .5rem;
         overflow: hidden;
+        height: 100%;
 
         .match-card-left {
             display: flex;
             flex-direction: row;
             align-items: center;
+            height: 100%;
             font-size: .8rem;
+
+            .team-link {
+                padding: .5rem;
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
 
             .match-card-detail-section {
                 display: flex;
