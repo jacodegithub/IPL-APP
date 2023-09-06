@@ -1,14 +1,14 @@
 .team-card {
-    padding: 2rem 0 2rem 0;
+    padding: 1rem 0 1rem 0;
 
     .team-name-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 1rem;
-        row-gap: 2rem;
+        row-gap: 1rem;
     
         .team-name-wrapper {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
             grid-column: span 2;
             padding: 1rem;
@@ -23,21 +23,36 @@
 
         .team-details {
             grid-column: span 3;
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             color: rgb(255, 255, 255);
             border-radius: 1rem;
 
             .match-details-left {
-                flex: 2;
                 padding: 1rem;
-                // background-color: azure;
+                
+                .team-vs {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+                .team-vs > span {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin: 0 1rem 0 0;
+                }
             }
         
             .match-details-right {
-                flex: 1;
                 text-align: right;
                 padding: 1rem;
-                // background-color: cadetblue;
+
+                .match-detail-title {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+                .match-detail-res {
+                    font-size: .8rem;
+                }
             }
         }
     

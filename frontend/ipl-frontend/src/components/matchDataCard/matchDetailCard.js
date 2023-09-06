@@ -14,16 +14,22 @@ export const MatchDetailCard = ({teamName, match}) => {
 
   return (
     <div className='match-card'>
-      <div className="match-card-left">
-        <div className={match.matchWinner === teamName ? "match-winner" : "match-looser"}>
-          <Link to={otherTeamLink}>VS {otherTeam}</Link>
+      <div className="match-card-wrapper">
+        <div className="match-card-left">
+          <div className={`team-link ${match.matchWinner === teamName ? `match-looser` : `match-winner`}`}>
+            <Link to={otherTeamLink}>VS {otherTeam}</Link>
+          </div>
+          {/* <div className={match.matchWinner === teamName ? "match-winner" : "match-looser"}>{match.matchWinner}</div> */}
+          <div className="match-card-detail-section">
+              <div className="match-won">won. {match.matchWinner}</div>
+              <div className="match-card-captain">c. {match.homeCaptain}</div>
+              <div className="match-card-result">c. {match.result}</div>
+              {/* <div className="match-card-venue-name">venue. {match.venueName}</div> */}
+          </div>
         </div>
-        {/* <div className={match.matchWinner === teamName ? "match-winner" : "match-looser"}>{match.matchWinner}</div> */}
-        <div className="match-card-captain">c. {match.homeCaptain}</div>
-        <div className="match-card-venue-name">{match.venueName}</div>
-      </div>
-      <div className="match-card-right pointer">
-        <Link to={matchPage}>{'more >'}</Link>
+            <div className="match-card-right">
+              <Link to={matchPage}>{'more >'}</Link>
+            </div>
       </div>
     </div>
   )

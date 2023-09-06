@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { HelperFunction } from '../../service/Helper';
 import { MatchDetailCard } from '../../components/matchDataCard/matchDetailCard'
 import { TeamDetailCard } from '../../components/teamDataCard/teamDetailCard'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './teamPage.scss'
 
 export const TeamPage = () => {
@@ -10,6 +10,8 @@ export const TeamPage = () => {
   const [teamData, setTeamData] = useState({matches: []});
 
   const { teamName } = useParams();
+
+  const matchPage =  `/teams/matches/${teamName}`
 
   useEffect(() => {
     HelperFunction(teamName).then(data => {
@@ -27,6 +29,11 @@ export const TeamPage = () => {
       {
         teamData && teamData?.matches?.slice(1).map((match, index) => <MatchDetailCard key={index} teamName={teamData.teamName} match={match} />)
       }
+      </div>
+      <div className="click-more">
+        <span className="more-info-title">
+         <Link to={matchPage}>More info</Link>
+        </span>
       </div>
     </div>
   )

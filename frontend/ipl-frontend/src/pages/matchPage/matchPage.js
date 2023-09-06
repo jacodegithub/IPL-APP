@@ -3,6 +3,7 @@ import { HelperFunctionForAllMatches } from '../../service/Helper'
 import { useParams } from 'react-router-dom'
 import { MatchDetailCard } from '../../components/matchDataCard/matchDetailCard'
 import '../../components/matchDataCard/matchDetailCard.scss'
+import './matchPage.scss'
 
 export const MatchPage = () => {
 
@@ -24,7 +25,7 @@ export const MatchPage = () => {
   return (
     <div className="match-page max-width">
         <div className="match-page-heading">
-            {teamName}
+            All matches of {teamName}
         </div>
         <div className='match-detail-card'>
             {

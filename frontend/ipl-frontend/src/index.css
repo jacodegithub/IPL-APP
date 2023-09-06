@@ -40,7 +40,7 @@ li {
 }
 
 :root {
-  --match-card-padding: .5rem .5rem .5rem .5rem;
+  --match-card-padding: .5rem;
   --looser-color: rgba(255, 0, 0, 0.300);
   --winner-color: rgba(172, 255, 47, 0.300);
 }
