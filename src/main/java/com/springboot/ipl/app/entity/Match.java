@@ -11,6 +11,7 @@ public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "season")
     private String season;
     private String team1;
     private String team2;

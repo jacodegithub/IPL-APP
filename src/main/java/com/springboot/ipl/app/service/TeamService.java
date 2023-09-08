@@ -12,4 +12,10 @@ public interface TeamService {
     List<Match> getMatchDetails(String teamName, Integer pageNumber);
 
     List<Match> getAllMatches(String teamName);
+
+    List<String> getAllSeason();
+
+    List<Match> getMatchesBetweenSeasons(String first, String second);
+
+    List<Match> getTeamBtwTheSeason(String team, String first, String second);
 }
