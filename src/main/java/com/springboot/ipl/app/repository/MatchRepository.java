@@ -30,5 +30,9 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
 
     List<Match> findMatchBySeasonBetween(String seasonFirst, String seasonSecond);
 
-    List<Match> findMatchByTeam1OrTeam2AndSeasonBetween(String team1, String team2, String firstSeason, String secondSeason);
+    // List<Match> findMatchByTeam1OrTeam2AndSeasonBetween(String team1, String team2, String firstSeason, String secondSeason);
+
+    @Query("SELECT m FROM Match m WHERE (m.team1 = :team OR m.team2 = :team) AND m.season BETWEEN :startSeason AND :endSeason")
+    List<Match> findMatchesByTeamAndSeasonBetween(@Param("team") String team, @Param("startSeason") String startSeason, @Param("endSeason") String endSeason);
+
 }

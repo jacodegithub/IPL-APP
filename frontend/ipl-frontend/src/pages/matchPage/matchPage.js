@@ -11,7 +11,7 @@ export const MatchPage = () => {
 
     let { teamName } = useParams();
 
-    const [typeTeamName, setTypeTeamName] = useState('')
+    const [typeTeamName, setTypeTeamName] = useState(teamName)
 
     const [season, setSeason] = useState([])
 
@@ -22,15 +22,9 @@ export const MatchPage = () => {
     const handleSubmit = () => {
         console.log('years selected ->', first, second)
 
-        // HelperFunctionToGetMatchesBySeason(first, second).then(data => {
-        //     console.log('matches by year ->', data)
-        // }).catch(error => {
-        //     console.log('matches by year ->', error)
-        // })
         HelperFunctionToGetMatchesBySeason(typeTeamName, first, second).then(data => {
             setMatches(data)
-            teamName = typeTeamName
-            console.log('teamname -> ', teamName)
+            console.log('teamname -> ', typeTeamName)
             console.log('matches by year ->', data)
         }).catch(error => {
             console.log('matches by year ->', error)
@@ -64,7 +58,7 @@ export const MatchPage = () => {
     <div className="match-page max-width">
         <div className="match-page-header-wrapper">
             <div className="match-page-heading">
-                All matches of {teamName}
+                All matches of {typeTeamName || teamName}
             </div>
             <div className="match-page-season">
                 <input type="text" placeholder='Type team name' onChange={handleTeamName}/>

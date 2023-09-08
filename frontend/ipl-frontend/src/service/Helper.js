@@ -22,7 +22,9 @@ export const HelperFunctionGetAllSeasons = async () => {
 }
 
 export const HelperFunctionToGetMatchesBySeason = async (teamName, first, second) => {
+  console.log('data ->', first, second)
   const response = await fetch(BASE_URL+`/season/${teamName}?firstYear=${first}&secondYear=${second}`)
   const data = await response.json();
+  
   return data;
 }

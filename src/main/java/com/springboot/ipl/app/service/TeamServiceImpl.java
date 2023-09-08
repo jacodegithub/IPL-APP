@@ -72,9 +72,8 @@ public class TeamServiceImpl implements TeamService{
     public List<Match> getTeamBtwTheSeason(String team, String first, String second) {
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'getTeamBtwTheSeason'");
-
-        List<Match> matches = matchRepository.findMatchByTeam1OrTeam2AndSeasonBetween(team, team, first, second);
-
+        
+        List<Match> matches = matchRepository.findMatchesByTeamAndSeasonBetween(team, first, second);
         return matches;
     }
 

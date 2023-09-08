@@ -55,9 +55,11 @@ public class MatchController {
 
     @GetMapping("teamName/season/{teamName}") 
     public List<Match> getTeamBtwSeasons(@PathVariable("teamName") String team,
-                                        @RequestParam(name = "fistYear", defaultValue = "2008", required = false) String firstYear,
+                                        @RequestParam(name = "firstYear", defaultValue = "2008", required = false) String firstYear,
                                         @RequestParam(name = "secondYear", defaultValue = "2008", required = false) String secondYear) {
+        System.out.println("working..."+firstYear+" "+secondYear);
         List<Match> matches = teamService.getTeamBtwTheSeason(team, firstYear, secondYear);
+        
         return matches;
     }
 
