@@ -25,18 +25,15 @@ export const MatchPage = () => {
 
         HelperFunctionToGetMatchesBySeason(typeTeamName, first, second).then(data => {
             setMatches(data)
+            setFlag(true)
             console.log('teamname -> ', typeTeamName)
             console.log('matches by year ->', data)
         }).catch(error => {
             console.log('matches by year ->', error)
         })
+        setFlag(false)
     }
 
-    const handleFirstSeason = (e) => {
-        console.log('value ->', e.target.value)
-        setFirst(e.target.value)
-    }
-    console.log(first)
     const handleTeamName = (e) => {
         setTypeTeamName(e.target.value)
     }
@@ -51,6 +48,7 @@ export const MatchPage = () => {
         
 
         HelperFunctionForAllMatches(teamName).then(data => {
+            if(matches !== null) return 
             setMatches(data)
             console.log("all matches -> ", data)
         }).catch(error => {
@@ -70,17 +68,17 @@ export const MatchPage = () => {
     <div className="match-page max-width">
         <div className="match-page-header-wrapper">
             <div className="match-page-heading">
-                All matches of {typeTeamName || teamName}
+                All matches of {(flag && typeTeamName) || teamName}
             </div>
             <div className="match-page-season">
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder='Team name' onChange={handleTeamName}/>
                     <label htmlFor="year">Select year: From</label>
-                    <select name="year" id="year" onChange={(e) => handleFirstSeason(e)}>
+                    <select name="year" id="year" onChange={e => setFirst(e.target.value)}>
                         {renderOptionYear()}
                     </select>
                     <label htmlFor="year">To</label>
-                    <select name="year" id="year" onCanPlay={e => setSecond(e.target.value)}>
+                    <select name="year" id="year" onChange={e => setSecond(e.target.value)}>
                         {renderOptionYear()}
                     </select>
                     <button type="submit">Filter</button>
