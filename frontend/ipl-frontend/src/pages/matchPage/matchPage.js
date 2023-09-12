@@ -12,14 +12,15 @@ export const MatchPage = () => {
     let { teamName } = useParams();
 
     const [typeTeamName, setTypeTeamName] = useState(teamName)
+    const [flag, setFlag] = useState(false)
 
     const [season, setSeason] = useState([])
 
     const [first, setFirst] = useState('')
     const [second, setSecond] = useState('')
 
- 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         console.log('years selected ->', first, second)
 
         HelperFunctionToGetMatchesBySeason(typeTeamName, first, second).then(data => {
@@ -31,8 +32,19 @@ export const MatchPage = () => {
         })
     }
 
+    const handleFirstSeason = (e) => {
+        console.log('value ->', e.target.value)
+        setFirst(e.target.value)
+    }
+    console.log(first)
     const handleTeamName = (e) => {
         setTypeTeamName(e.target.value)
+    }
+
+    const renderOptionYear = () => {
+        return season && season?.map((yr, index) => (
+            <option key={index} value={yr}>{yr}</option>
+        ))
     }
 
     useEffect(() => {
@@ -61,24 +73,18 @@ export const MatchPage = () => {
                 All matches of {typeTeamName || teamName}
             </div>
             <div className="match-page-season">
-                <input type="text" placeholder='Type team name' onChange={handleTeamName}/>
-                <label htmlFor='year'>Select year: Fron</label>
-                <select name="year" id="year" onChange={e => setFirst(e.target.value)}>
-                    {
-                        season && season.map((eyr, index) => (
-                            <option key={index} value={eyr}>{eyr}</option>
-                        ))
-                    }
-                </select>
-                <label htmlFor="year">To</label>
-                <select name="year" id="year" onChange={e => setSecond(e.target.value)}>
-                    {
-                        season && season.map((eyr, index) => (
-                            <option key={index} value={eyr}>{eyr}</option>
-                        ))
-                    }
-                </select>
-                <button onClick={handleSubmit}>Filter</button>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder='Team name' onChange={handleTeamName}/>
+                    <label htmlFor="year">Select year: From</label>
+                    <select name="year" id="year" onChange={(e) => handleFirstSeason(e)}>
+                        {renderOptionYear()}
+                    </select>
+                    <label htmlFor="year">To</label>
+                    <select name="year" id="year" onCanPlay={e => setSecond(e.target.value)}>
+                        {renderOptionYear()}
+                    </select>
+                    <button type="submit">Filter</button>
+                </form>
             </div>
         </div>
         <div className='match-detail-card'>
