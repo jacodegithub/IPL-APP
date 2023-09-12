@@ -1,0 +1,15 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+
+    .home-page-title {
+        align-self: center;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    .home-page-body {
+        display: grid;
+        gap: 1rem;
+    }
+}

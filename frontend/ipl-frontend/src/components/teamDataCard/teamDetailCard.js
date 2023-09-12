@@ -1,6 +1,5 @@
 import './teamDetailCard.scss'
 import '../../components/matchDataCard/matchDetailCard.scss'
-import { TeamPage } from '../../pages/teamPage/TeamPage';
 import { TeamPageChart } from '../teamCharts/teamPageChart';
 
 export const TeamDetailCard = ({matches, teamData, teamName}) => {

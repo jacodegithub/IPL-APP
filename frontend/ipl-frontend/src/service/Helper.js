@@ -28,3 +28,9 @@ export const HelperFunctionToGetMatchesBySeason = async (teamName, first, second
   
   return data;
 }
+
+export async function HelperFunctionToGetAllTeams() {
+  const response = await fetch(BASE_URL+`/teams`)
+  const data = await response.json()
+  return data;
+}

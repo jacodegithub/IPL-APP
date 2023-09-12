@@ -3,10 +3,10 @@ package com.springboot.ipl.app.controller;
 import com.springboot.ipl.app.entity.Match;
 import com.springboot.ipl.app.entity.Team;
 import com.springboot.ipl.app.service.TeamService;
-import com.springboot.ipl.app.service.TeamServiceImpl;
 
 import java.util.List;
 
+import org.hibernate.annotations.GeneratorType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,6 +61,14 @@ public class MatchController {
         List<Match> matches = teamService.getTeamBtwTheSeason(team, firstYear, secondYear);
         
         return matches;
+    }
+
+
+    @GetMapping("/teamName/teams")
+    public List<Team> getAllTeams() {
+        List<Team> teams = teamService.findAllTeams();
+        // log.info("teams ", teams);
+        return teams;
     }
 
     // @GetMapping("teamName/{teamName}") 

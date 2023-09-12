@@ -48,7 +48,7 @@ export const MatchPage = () => {
         
 
         HelperFunctionForAllMatches(teamName).then(data => {
-            if(matches !== null) return 
+            // if(matches !== null) return 
             setMatches(data)
             console.log("all matches -> ", data)
         }).catch(error => {
@@ -68,7 +68,7 @@ export const MatchPage = () => {
     <div className="match-page max-width">
         <div className="match-page-header-wrapper">
             <div className="match-page-heading">
-                All matches of {(flag && typeTeamName) || teamName}
+                All matches of {typeTeamName ||  teamName}
             </div>
             <div className="match-page-season">
                 <form onSubmit={handleSubmit}>

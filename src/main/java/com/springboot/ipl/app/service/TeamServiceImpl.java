@@ -77,6 +77,14 @@ public class TeamServiceImpl implements TeamService{
         return matches;
     }
 
+    @Override
+    public List<Team> findAllTeams() {
+        // TODO Auto-generated method stub
+        List<Team> teams = teamRepository.getTeams();
+        // log.info("these are teams : {}", teams);
+        return teams;
+    }
+
     // @Override
     // public List<Match> getMatchesBetweenSeasons(String first, String second) {
         

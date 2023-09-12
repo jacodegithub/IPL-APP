@@ -18,4 +18,6 @@ public interface TeamService {
     List<Match> getMatchesBetweenSeasons(String first, String second);
 
     List<Match> getTeamBtwTheSeason(String team, String first, String second);
+
+    List<Team> findAllTeams();
 }
